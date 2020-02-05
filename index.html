@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+</head>
+<body>
+    
+
+
+    <textarea id="in" rows="10" cols="100" >Feeling Blue (wearing @kkwbeauty powder contour in medium & dark contour kit as eye shadow, & a new lip coming soon)</textarea>
+    <textarea id="out" rows="10" cols="100" ></textarea>
+
+    <button onclick="judge()">judge()</button>
+    <script>
+    function judge() { 
+        const txt = document.getElementById("in").value 
+        const obj = execute(txt)
+        // obj.certainty = % confidence
+        // obj.category = what category
+        document.getElementById("out").value = JSON.stringify(obj, null, 2 ) 
+    } 
+    </script>
+
+    <script src="./js/training-data.js"></script>
+    <script src="./js/brain.js"></script>
+    <script src="./js/scripts.js"></script>
+</body>
+</html>
