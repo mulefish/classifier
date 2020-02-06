@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <script src="https://cdn.rawgit.com/BrainJS/brain.js/5797b875/browser.js"></script>
+        <!-- <script src="objs.js"></script> -->
+    </head>
+    <body>
+        Single hidden layer w/ 3 nodes, example via <a href="https://scrimba.com/g/gneuralnetworks?utm_source=freecodecamp.org&utm_medium=referral&utm_campaign=gneuralnetworks_create_neural_network">https://scrimba.com/g/gneuralnetworks?utm_source=freecodecamp.org&utm_medium=referral&utm_campaign=gneuralnetworks_create_neural_network</a>
+        <hr>
+        <div id="out"></div>
+<script>
+    
+
+    function emit(msg) {
+        console.log(msg)
+        document.getElementById("out").innerHTML += "<br>" + msg 
+    }
+
+    
+// Count to 5
+// 1-5, 5-1
+
+const trainingData = [
+    [1,2,3,4,5,6,7,8,9,10,11,12],
+    [5,4,3,2,1]
+];
+
+const net = new brain.recurrent.LSTMTimeStep();
+
+net.train(trainingData);
+
+// emit(net.run([1,2,3,4,5,6,7,8,9,10,11]));
+emit(net.run([1,3, 5]));
+emit(net.run([5,4,3,2]));
+</script>
+
+    </body>
+</html>
