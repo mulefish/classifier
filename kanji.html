@@ -1,74 +1,49 @@
 <html>
-    <head>
-        <meta charset="utf-8" />
 
-        <style>
-        td { 
-            width: 10px;    
-            height:10px;
-        }</style>
-    </head>
+  <head>
+
+    <meta charset="utf-8" />
+
+    <style>
+
+    .viewport {
+
+      border:2px solid;
+
+    }
+
+    .spacer {
+
+      width:10px;
+
+    }
+
+    </style>
+
+    <script src="kanji.js"></script>
+
+  </head>
+
     <body>
 
-        <div id='table'></div>
+
+
+      <canvas class='viewport' id="can" width="512" height="512" ></canvas>
+
+            <img id="canvasimg" style="display:none;">
+
+        <hr/>
+
+        <input type="button" value="save" id="btn" size="30" onclick="save()" >
+
+        <input type="button" value="clear" id="clr" size="23" onclick="erase()" >
 
         <script>
-            /*
-            let isDown = false 
-            let downListener = () => {
-                isDown= true 
-            }
-            let moveListener = () => {
-                
-            }
-            let upListener = () => {
-                isDown = false               
-            }
-            */ 
-           function setCell(i, j, k ) {
-               if ( down === true ) {
-                console.log( obj )
-                grid[i][j] = 1;
-               }
-           }
 
-           let grid = [] 
-
-            function gui() {
-                let t = "<table border='1'>"
-grid = [] 
-let k = 0 
-                for ( let i = 0; i < 64; i++) { 
-                    t += "<tr>"
-                    for ( let j = 0; j < 64; j++) { 
-                        t += "<td onmouseenter='setCell(i,j,k)'></td>"
-k++
-                    }
-                    t += "</tr>"
-                }   
-                t += "</table>"
-
-                const div = document.getElementById("table")
-                div.innerHTML = t
-                /*
-                div.addEventListener('mousedown', downListener)
-                div.addEventListener('mousemove', moveListener)
-                div.addEventListener('mouseup', upListener)
-                */                 
-                div.addEventListener('mousedown', () => console.log( "DOWN")  )
-//                div.addEventListener('mousemove', moveListener)
-//                div.addEventListener('mouseup', upListener)
-
-            }
-            gui()
-
-
+        init()
 
         </script>
 
-
     </body>
 
-
-
-</html>
+    </html>
