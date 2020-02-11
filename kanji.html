@@ -43,7 +43,8 @@
             const kanji = widget2.options[widget2.selectedIndex].text;
             const english = widget2.options[widget2.selectedIndex].value;
             erase()
-            ctx.font = font
+            ctx.fillStyle = "#f0f0f0";
+   ctx.font = font
             console.log("font " + ctx.font )
             ctx.fillText(kanji, 0, 440);
         }
@@ -52,6 +53,7 @@
             const kanji = widget.options[widget.selectedIndex].text;
             const english = widget.options[widget.selectedIndex].value;
             const fontwidget = document.getElementById("font")
+            ctx.fillStyle = "#f0f0f0";
             ctx.font = fontwidget.options[fontwidget.selectedIndex].text;
             erase()
             console.log("font: " + ctx.font )
