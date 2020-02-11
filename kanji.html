@@ -1,49 +1,62 @@
 <html>
 
   <head>
-
     <meta charset="utf-8" />
-
     <style>
-
     .viewport {
-
       border:2px solid;
-
     }
-
-    .spacer {
-
-      width:10px;
-
-    }
-
     </style>
-
     <script src="kanji.js"></script>
-
   </head>
-
     <body>
 
+<select id="kanji" onchange="pickKanji(this)">
+    <option value="select">選択</option>
+    <option value="ocean">海</option>
+    <option value="cat">猫</option>
+    <option value="dog">犬</option>
+    <option value="fish">魚</option>
+    <option value="horse">鳥</option>
+    <option value="whale">鯨</option>
+</select>
+<select id="font" onchange="setFontStyle(this)">
+    <option>512px Arial</option>
+    <option>512px Times New Roman</option>
+    <option>512px san serif</option>
+    <option>italic 380pt Courier</option>
+    <option>380pt Courier</option>
+</select>
 
-
+<hr/>
       <canvas class='viewport' id="can" width="512" height="512" ></canvas>
-
             <img id="canvasimg" style="display:none;">
-
         <hr/>
-
         <input type="button" value="save" id="btn" size="30" onclick="save()" >
-
         <input type="button" value="clear" id="clr" size="23" onclick="erase()" >
-
         <script>
-
         init()
 
+        function setFontStyle(widget) {
+            const font = widget.options[widget.selectedIndex].text;
+            const widget2 = document.getElementById("kanji")
+            const kanji = widget2.options[widget2.selectedIndex].text;
+            const english = widget2.options[widget2.selectedIndex].value;
+            erase()
+            ctx.font = font
+            console.log("font " + ctx.font )
+            ctx.fillText(kanji, 0, 440);
+        }
+
+        function pickKanji(widget) {
+            const kanji = widget.options[widget.selectedIndex].text;
+            const english = widget.options[widget.selectedIndex].value;
+            const fontwidget = document.getElementById("font")
+            ctx.font = fontwidget.options[fontwidget.selectedIndex].text;
+            erase()
+            console.log("font: " + ctx.font )
+            ctx.fillText(kanji, 0, 440);
+        }
         </script>
-
     </body>
-
-    </html>
+</html>

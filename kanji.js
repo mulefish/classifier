@@ -6,7 +6,8 @@ let currX = 0;
 let prevY = 0;
 let currY = 0;
 let dot_flag = false;
-let thickness = 3; // line thickness
+let thickness = 512 / 30 ; // line thickness
+//console.log("thicknesss is " + thickness )
 function init() {
     canvas = document.getElementById('can');
     ctx = canvas.getContext("2d");
@@ -21,36 +22,19 @@ function init() {
     canvas.addEventListener("touchend", function(e) {
         findxy('touchend', e)
     }, false);
-
-
     canvas.addEventListener("mousemove", function(e) {
         findxy('move', e)
     }, false);
-
-
-
-
     canvas.addEventListener("mousedown", function(e) {
         findxy('down', e)
     }, false);
-
-
-
-
     canvas.addEventListener("mouseup", function(e) {
-
         findxy('up', e)
-
     }, false);
-
     canvas.addEventListener("mouseout", function(e) {
-
         findxy('out', e)
-
     }, false);
-
 }
-
 
 function draw() {
     ctx.beginPath();
@@ -62,12 +46,10 @@ function draw() {
     ctx.closePath();
 }
 
+
 function erase() {
-    // var m = confirm("Want to clear");
-    // if (m) {
-        ctx.clearRect(0, 0, w, h);
-        document.getElementById("canvasimg").style.display = "none";
-    // }
+    ctx.clearRect(0, 0, w, h);
+    document.getElementById("canvasimg").style.display = "none";
 }
 
 function save() {
@@ -124,7 +106,7 @@ function findxy(res, e) {
         if (flag) {
             prevX = currX;
             prevY = currY;
-            currX = e.touches[0].clientX - canvas.offsetLeft;
+            currX = e.touches[0].clientX - canvas.offsetTop;
             currY = e.touches[0].clientY - canvas.offsetTop;
             draw();
         }
